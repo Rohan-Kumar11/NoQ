@@ -1,0 +1,213 @@
+/* app/components/ProductImage.module.css */
+
+.productImageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Size variants */
+.small {
+  width: 50px;
+  height: 50px;
+  border-radius: 0.5rem;
+}
+
+.medium {
+  width: 100px;
+  height: 100px;
+  border-radius: 1rem;
+}
+
+.large {
+  width: 150px;
+  height: 150px;
+  border-radius: 1.25rem;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.productImage:hover {
+  transform: scale(1.05);
+}
+
+.imageLoading {
+  opacity: 0;
+}
+
+.skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 0%,
+    #e0e0e0 50%,
+    #f0f0f0 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeletonShimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  animation: shimmerSlide 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes shimmerSlide {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.emojiContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+}
+
+.emoji {
+  font-size: 3rem;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Size-specific emoji sizes */
+.small .emoji {
+  font-size: 1.5rem;
+}
+
+.medium .emoji {
+  font-size: 3rem;
+}
+
+.large .emoji {
+  font-size: 4.5rem;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .large {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .large .emoji {
+    font-size: 3rem;
+  }
+}
+/* app/components/ProductImage.module.css */
+
+.productImageContainer {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Size variants */
+.productImageContainer.small {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.productImageContainer.medium {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+}
+
+.productImageContainer.large {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  min-height: 80px;
+}
+
+/* Image styling */
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Emoji fallback container */
+.emojiContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Emoji sizing */
+.productImageContainer.small .emoji {
+  font-size: 1.5rem;
+}
+
+.productImageContainer.medium .emoji {
+  font-size: 2rem;
+}
+
+.productImageContainer.large .emoji {
+  font-size: 3rem;
+}
+
+.emoji {
+  line-height: 1;
+  user-select: none;
+}

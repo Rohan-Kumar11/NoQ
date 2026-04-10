@@ -1,0 +1,379 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 8rem 4% 4rem;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--soft-white) 0%, var(--cream) 100%);
+}
+
+.heroContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.heroText {
+  position: relative;
+}
+
+.heroLabel {
+  display: inline-block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-gray);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.heroText h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 6.5rem;
+  line-height: 1.05;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  letter-spacing: -2px;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+}
+
+.heroText p {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--text-gray);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  font-weight: 400;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.primaryCta {
+  background: var(--primary-dark);
+  color: var(--soft-white);
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  font-weight: 600;
+  border: 2px solid var(--primary-dark);
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.secondaryCta {
+  color: var(--primary-dark);
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* ⭐ REMOVED: heroStats, statItem, statNumber, statLabel classes */
+
+.heroVisual {
+  position: relative;
+  perspective: 1500px;
+}
+
+.visualCard {
+  background: white;
+  border-radius: 30px;
+  padding: 3rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: visible;
+}
+
+.visualCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+}
+
+.cardGlow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle at center, var(--accent-blue), transparent 70%);
+  filter: blur(40px);
+  opacity: 0.3;
+  z-index: -1;
+}
+
+/* 3D Perspective Container */
+.perspectiveContainer {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.queueVisualization {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transform-style: preserve-3d;
+}
+
+/* 3D Queue Blocks */
+.queueBlock {
+  position: relative;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.blockFace {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: var(--cream);
+  border-radius: 20px;
+  position: relative;
+  transform: translateZ(20px);
+  backface-visibility: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* 3D Block Sides for depth */
+.blockSide {
+  position: absolute;
+  top: 0;
+  right: -8px;
+  width: 8px;
+  height: 100%;
+  border-radius: 0 20px 20px 0;
+  opacity: 0.3;
+  transform: rotateY(90deg);
+  transform-origin: right;
+}
+
+.blockBottom {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  border-radius: 0 0 20px 20px;
+  opacity: 0.2;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+}
+
+/* 3D Avatar */
+.queueAvatar3D {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  transform-style: preserve-3d;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatarInner {
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateZ(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatarIcon {
+  font-size: 1.5rem;
+  transform: translateZ(10px);
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.queueInfo {
+  flex: 1;
+}
+
+.queueInfo h4 {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  color: var(--primary-dark);
+}
+
+.queueInfo p {
+  font-size: 0.85rem;
+  color: var(--text-gray);
+  margin: 0;
+}
+
+/* 3D Pulse Indicator */
+.pulseIndicator3D {
+  width: 12px;
+  height: 12px;
+  background: var(--accent-blue);
+  border-radius: 50%;
+  margin-left: auto;
+  position: relative;
+  box-shadow: 0 0 10px var(--accent-blue);
+  transform: translateZ(10px);
+}
+
+.pulseRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--accent-blue);
+}
+
+/* Floating 3D Elements */
+.floating3DElement {
+  position: absolute;
+  top: -50px;
+  right: -30px;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  border-radius: 15px;
+  opacity: 0.15;
+  transform-style: preserve-3d;
+  box-shadow: 0 20px 40px rgba(74, 144, 226, 0.3);
+}
+
+.floating3DElement2 {
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--accent-purple), #EC4899);
+  border-radius: 12px;
+  opacity: 0.12;
+  transform-style: preserve-3d;
+  box-shadow: 0 15px 35px rgba(139, 92, 246, 0.3);
+}
+
+/* Floating Background Elements */
+.floatingCircle1 {
+  position: absolute;
+  top: 20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(74, 144, 226, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.floatingCircle2 {
+  position: absolute;
+  bottom: 10%;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .heroContent {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .heroText h1 {
+    font-size: 4.5rem;
+  }
+
+  .heroVisual {
+    perspective: 1000px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 6rem 4% 3rem;
+  }
+
+  .heroText h1 {
+    font-size: 3rem;
+  }
+
+  .visualCard {
+    padding: 2rem;
+  }
+
+  .queueBlock {
+    transform: scale(0.95);
+  }
+
+  .blockFace {
+    padding: 1.2rem;
+    gap: 1rem;
+  }
+
+  .queueAvatar3D {
+    width: 40px;
+    height: 40px;
+  }
+
+  .avatarIcon {
+    font-size: 1.2rem;
+  }
+
+  .floating3DElement,
+  .floating3DElement2 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroText h1 {
+    font-size: 2.5rem;
+  }
+
+  .heroText p {
+    font-size: 1rem;
+  }
+
+  .heroCtas {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primaryCta,
+  .secondaryCta {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}

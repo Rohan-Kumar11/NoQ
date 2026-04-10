@@ -1,0 +1,1013 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--soft-white) 0%, var(--cream) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Background */
+.backgroundElements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.circle1 {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(74, 144, 226, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.circle2 {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.circle3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Main Content */
+.contentWrapper {
+  max-width: 1400px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: stretch;
+  position: relative;
+  z-index: 1;
+}
+
+/* Left Panel */
+.leftPanel {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: auto;
+  padding: 6rem;
+}
+
+.leftPanelContent {
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Logo Styles */
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 3rem;
+}
+
+.logoImage {
+  height: auto;
+  width: auto;
+  max-height: 55px;
+  object-fit: contain;
+}
+
+.leftPanelContent h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4.5rem;
+  line-height: 1.1;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  letter-spacing: -2px;
+  color: var(--primary-dark);
+}
+
+.gradientText {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-gray);
+  margin-bottom: 3rem;
+}
+
+/* Features List */
+.featuresList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 15px;
+  border: 1px solid var(--border-gray);
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.featureItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-color: var(--accent-blue);
+}
+
+.featureIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* Right Panel - Form */
+.rightPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: auto;
+  padding: 3rem;
+}
+
+.formContainer {
+  background: white;
+  padding: 3rem;
+  border-radius: 30px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-gray);
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+}
+
+.formContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+  border-radius: 30px 30px 0 0;
+}
+
+/* Toggle Buttons */
+.toggleContainer {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--cream);
+  padding: 0.5rem;
+  border-radius: 50px;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.toggleBtn {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: transparent;
+  color: var(--text-gray);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.toggleBtn.active {
+  color: var(--primary-dark);
+}
+
+.toggleIndicator {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: calc(50% - 0.5rem);
+  height: calc(100% - 1rem);
+  background: white;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+/* User Type Selection */
+.userTypeContainer {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.userTypeBtn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem;
+  border: 2px solid var(--border-gray);
+  background: white;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-gray);
+}
+
+.userTypeBtn:hover {
+  border-color: var(--accent-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.userTypeBtn.active {
+  border-color: var(--accent-blue);
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.05), rgba(139, 92, 246, 0.05));
+  color: var(--primary-dark);
+  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.15);
+}
+
+.userTypeIcon {
+  font-size: 2rem;
+}
+
+/* Form Header */
+.formHeader {
+  margin-bottom: 2rem;
+}
+
+.formHeader h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--primary-dark);
+}
+
+.formHeader p {
+  color: var(--text-gray);
+  font-size: 0.95rem;
+}
+
+/* Error Message */
+.errorMessage {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  border: 1px solid #f87171;
+  color: #991b1b;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Social Buttons */
+.socialButtons {
+  margin-bottom: 2rem;
+}
+
+.socialBtn {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border-gray);
+  background: white;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.socialBtn:hover {
+  border-color: var(--accent-blue);
+  background: var(--soft-white);
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 2rem 0;
+  color: var(--text-gray);
+  font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--border-gray);
+}
+
+.divider span {
+  padding: 0 1rem;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formField label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--primary-dark);
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  font-size: 1.2rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.formField input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid var(--border-gray);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: white;
+  font-family: inherit;
+}
+
+.selectWithIcon {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid var(--border-gray);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: white;
+  font-family: inherit;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23666666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 3rem;
+}
+
+.formField input:focus,
+.selectWithIcon:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+}
+
+.formField.focused input {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+}
+
+.formField input::placeholder {
+  color: rgba(102, 102, 102, 0.5);
+}
+
+/* Forgot Password */
+.forgotPassword {
+  text-align: right;
+  margin-top: -0.5rem;
+}
+
+.forgotPassword a {
+  color: var(--accent-blue);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.forgotPassword a:hover {
+  opacity: 0.7;
+}
+
+/* Submit Button */
+.submitBtn {
+  width: 100%;
+  padding: 1.2rem;
+  background: var(--primary-dark);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.submitBtn:hover {
+  background: var(--accent-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(74, 144, 226, 0.3);
+}
+
+.btnArrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.submitBtn:hover .btnArrow {
+  transform: translateX(5px);
+}
+
+/* Loading Spinner */
+.loadingSpinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.spinner {
+  animation: rotate 1s linear infinite;
+  width: 20px;
+  height: 20px;
+}
+
+.spinner circle {
+  stroke: currentColor;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+/* Disabled state for buttons and inputs */
+.submitBtn:disabled,
+.toggleBtn:disabled,
+.userTypeBtn:disabled,
+.socialBtn:disabled,
+.switchModeBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.formField input:disabled,
+.formField select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #f9fafb;
+}
+
+/* Terms */
+.terms {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-gray);
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+.terms a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.terms a:hover {
+  text-decoration: underline;
+}
+
+/* Switch Mode */
+.switchMode {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-gray);
+}
+
+.switchMode p {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+}
+
+.switchModeBtn {
+  background: none;
+  border: none;
+  color: var(--accent-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  padding: 0;
+}
+
+.switchModeBtn:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+/* ================================ */
+/* VERIFICATION DIALOG STYLES */
+/* ================================ */
+
+/* Dialog Backdrop - Perfectly Centered */
+.dialogBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* Dialog Container - Centered */
+.dialogContainer {
+  width: 100%;
+  max-width: 540px;
+  margin: auto;
+  z-index: 10002;
+}
+
+/* Dialog Box */
+.dialog {
+  background: white;
+  border-radius: 28px;
+  padding: 3.5rem 2.5rem;
+  box-shadow: 
+    0 0 0 1px rgba(0, 0, 0, 0.05),
+    0 25px 70px rgba(0, 0, 0, 0.3),
+    0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  width: 100%;
+  animation: dialogAppear 0.4s ease-out;
+}
+
+@keyframes dialogAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Dialog Icon */
+.dialogIcon {
+  margin: 0 auto 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: iconBounce 0.6s ease-out 0.2s;
+}
+
+@keyframes iconBounce {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Dialog Title */
+.dialogTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+/* Dialog Message */
+.dialogMessage {
+  font-size: 1.05rem;
+  color: #666;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.6;
+}
+
+/* Dialog Email */
+.dialogEmail {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #4A90E2;
+  margin: 0 0 1.25rem 0;
+  word-break: break-all;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.08), rgba(139, 92, 246, 0.08));
+  border-radius: 12px;
+  border: 2px solid rgba(74, 144, 226, 0.2);
+}
+
+/* Dialog Instruction */
+.dialogInstruction {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0 0 2rem 0;
+  line-height: 1.7;
+}
+
+/* Info Box */
+.dialogInfoBox {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 2px solid #bae6fd;
+  border-radius: 14px;
+  padding: 1.125rem 1.25rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.08);
+}
+
+.infoIcon {
+  font-size: 1.375rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.dialogInfoBox p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #0369a1;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Dialog Button */
+.dialogButton {
+  width: 100%;
+  padding: 1.125rem 2rem;
+  background: linear-gradient(135deg, #4A90E2 0%, #8B5CF6 100%);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  box-shadow: 
+    0 4px 14px rgba(74, 144, 226, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dialogButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.dialogButton:hover::before {
+  left: 100%;
+}
+
+.dialogButton:hover {
+  box-shadow: 
+    0 6px 20px rgba(74, 144, 226, 0.5),
+    0 3px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.dialogButton:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 3px 12px rgba(74, 144, 226, 0.4),
+    0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dialogButton .btnArrow {
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.dialogButton:hover .btnArrow {
+  transform: translateX(5px);
+}
+
+/* Responsive Dialog */
+@media (max-width: 640px) {
+  .dialogBackdrop {
+    padding: 1rem;
+  }
+
+  .dialog {
+    padding: 2.5rem 1.75rem;
+    border-radius: 24px;
+  }
+
+  .dialogTitle {
+    font-size: 1.75rem;
+  }
+
+  .dialogEmail {
+    font-size: 1rem;
+    padding: 0.625rem 0.875rem;
+  }
+
+  .dialogMessage,
+  .dialogInstruction {
+    font-size: 0.9rem;
+  }
+
+  .dialogButton {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .dialogInfoBox {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .infoIcon {
+    font-size: 1.25rem;
+  }
+
+  .dialogInfoBox p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dialog {
+    padding: 2rem 1.5rem;
+  }
+
+  .dialogTitle {
+    font-size: 1.5rem;
+  }
+
+  .dialogIcon {
+    margin-bottom: 1.5rem;
+  }
+
+  .dialogIcon svg {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contentWrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .leftPanel {
+    display: none;
+  }
+
+  .rightPanel {
+    padding: 1.5rem;
+    min-height: auto;
+  }
+
+  .formContainer {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .formContainer {
+    padding: 1.5rem;
+  }
+
+  .formHeader h2 {
+    font-size: 2rem;
+  }
+
+  .featuresList {
+    grid-template-columns: 1fr;
+  }
+
+  .toggleBtn {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .userTypeContainer {
+    flex-direction: column;
+  }
+
+  .userTypeBtn {
+    padding: 1.25rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .formContainer {
+    padding: 1.5rem 1rem;
+  }
+
+  .formField input,
+  .selectWithIcon {
+    padding: 0.9rem 0.9rem 0.9rem 2.5rem;
+  }
+
+  .inputIcon {
+    left: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .userTypeIcon {
+    font-size: 1.5rem;
+  }
+
+  .logoImage {
+    max-height: 45px;
+  }
+}
+/* ============================================================
+   APPEND THESE CLASSES TO THE BOTTOM OF Getstarted.module.css
+   Do NOT replace the existing file — just paste at the end
+   ============================================================ */
+
+/* ── Event Organizer user type button variant ───────────────────────────────
+   The third button in userTypeContainer is slightly narrower on mobile.
+   On desktop all three sit in a row via existing flex layout.             */
+.userTypeBtnEvent {
+  position: relative;
+}
+
+.userTypeBtnEvent.active {
+  border-color: #7c3aed;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.06), rgba(139, 92, 246, 0.06));
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
+}
+
+/* ── Event organizer info banner ────────────────────────────────────────── */
+.eventInfoBanner {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(139, 92, 246, 0.05));
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.eventInfoIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.eventInfoBanner strong {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4c1d95;
+  margin-bottom: 3px;
+}
+
+.eventInfoBanner p {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #6d28d9;
+  line-height: 1.5;
+}
+
+/* ── Event feature chips ─────────────────────────────────────────────────── */
+.eventFeatureChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: -0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.eventChip {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  color: #5b21b6;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* ── Submit button variant for event organizer ──────────────────────────── */
+.submitBtnEvent {
+  background: linear-gradient(135deg, #7c3aed, #8b5cf6) !important;
+}
+
+.submitBtnEvent:hover {
+  background: linear-gradient(135deg, #6d28d9, #7c3aed) !important;
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* ── Three-button userTypeContainer tweak ──────────────────────────────── */
+/* When 3 buttons exist, keep them equal width without breaking existing 2  */
+.userTypeContainer:has(.userTypeBtnEvent) .userTypeBtn {
+  padding: 1.25rem 0.6rem;
+  font-size: 0.875rem;
+}
+
+/* Fallback for browsers without :has() support */
+@supports not selector(:has(*)) {
+  .userTypeContainer .userTypeBtn {
+    padding: 1.25rem 0.6rem;
+  }
+}

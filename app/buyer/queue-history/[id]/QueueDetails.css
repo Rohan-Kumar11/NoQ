@@ -1,0 +1,9 @@
+/* app/buyer/queue-history/[id]/QueueDetails.css - Same styling as OrderDetails */
+
+/* This file uses all the same classes from OrderDetails.css */
+/* Copy all styles from app/buyer/orders/[id]/OrderDetails.css */
+
+/* Or import it directly if needed */
+@import '../../orders/[id]/OrderDetails.css';
+
+/* Additional queue-specific styles can go here if needed */

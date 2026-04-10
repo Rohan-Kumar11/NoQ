@@ -1,0 +1,154 @@
+.section {
+  padding: 5rem 4%;  /* ⭐ Reduced from 8rem to 5rem */
+  background: var(--soft-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.sectionHeader {
+  max-width: 700px;  /* ⭐ Reduced from 800px */
+  margin: 0 auto 3.5rem;  /* ⭐ Reduced from 6rem to 3.5rem */
+  text-align: center;
+}
+
+.sectionLabel {
+  font-size: 0.8rem;  /* ⭐ Slightly reduced from 0.85rem */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-gray);
+  margin-bottom: 1rem;  /* ⭐ Reduced from 1.5rem */
+  font-weight: 600;
+  display: inline-block;
+}
+
+.sectionHeader h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;  /* ⭐ Reduced from 4.5rem */
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 1rem;  /* ⭐ Reduced from 1.5rem */
+  letter-spacing: -1px;
+}
+
+.sectionHeader p {
+  font-size: 1.05rem;  /* ⭐ Reduced from 1.2rem */
+  color: var(--text-gray);
+  line-height: 1.6;  /* ⭐ Reduced from 1.7 */
+}
+
+.stepsGrid {
+  max-width: 1300px;  /* ⭐ Reduced from 1400px */
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;  /* ⭐ Reduced from 3rem */
+  position: relative;
+  z-index: 1;
+}
+
+.stepCard {
+  position: relative;
+  padding: 1.75rem 1.5rem;  /* ⭐ Reduced from 2.5rem 2rem */
+  background: white;
+  border-radius: 20px;  /* ⭐ Reduced from 25px */
+  border: 1px solid var(--border-gray);
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.iconWrapper {
+  width: 60px;  /* ⭐ Reduced from 80px */
+  height: 60px;  /* ⭐ Reduced from 80px */
+  border-radius: 16px;  /* ⭐ Reduced from 20px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;  /* ⭐ Reduced from 2rem */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);  /* ⭐ Slightly reduced */
+}
+
+.stepIcon {
+  font-size: 2rem;  /* ⭐ Reduced from 2.5rem */
+}
+
+.stepNumber {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;  /* ⭐ Reduced from 4rem */
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 1rem;  /* ⭐ Reduced from 1.5rem */
+  display: block;
+}
+
+.stepCard h3 {
+  font-size: 1.25rem;  /* ⭐ Reduced from 1.4rem */
+  font-weight: 600;
+  margin-bottom: 0.75rem;  /* ⭐ Reduced from 1rem */
+  line-height: 1.3;
+}
+
+.stepCard p {
+  color: var(--text-gray);
+  line-height: 1.6;  /* ⭐ Reduced from 1.7 */
+  font-size: 0.9rem;  /* ⭐ Reduced from 0.95rem */
+}
+
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;  /* ⭐ Reduced from 4px */
+  transform-origin: left;
+  border-radius: 0 0 20px 20px;
+}
+
+.connectionLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 300px;  /* ⭐ Reduced from 400px */
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.25;  /* ⭐ Reduced from 0.3 */
+  transform: translateY(-50%);
+}
+
+@media (max-width: 1024px) {
+  .stepsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .section {
+    padding: 4rem 4%;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 4%;
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2.5rem;
+  }
+
+  .sectionHeader h2 {
+    font-size: 2.5rem;
+  }
+
+  .stepCard {
+    padding: 1.5rem 1.25rem;
+  }
+}

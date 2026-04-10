@@ -1,0 +1,62 @@
+/* Analytics.module.css — Editorial · Refined · Warm Minimalism */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+:root {
+  --sidebar-width: 260px;
+  --sidebar-collapsed-width: 80px;
+}
+
+/* ── Layout ── */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #F8F6F1;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  color: #0D0D0D;
+}
+
+.mainContent {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 1.75rem 2rem;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 100vh;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* ── Spin for loader ── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1280px) {
+  .mainContent { padding: 1.5rem; }
+}
+
+@media (max-width: 1024px) {
+  .mainContent {
+    margin-left: var(--sidebar-collapsed-width);
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    margin-left: 0;
+    padding: 1rem 0.875rem;
+    padding-top: 4rem; /* space for hamburger */
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContent { padding: 0.75rem 0.625rem; padding-top: 3.75rem; }
+}
+
+/* ── 2-col grids → 1 col on mobile ── */
+@media (max-width: 768px) {
+  /* Any inline 2-col grid auto-stacks; nothing extra needed since we use inline styles */
+}
